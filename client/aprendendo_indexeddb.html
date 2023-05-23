@@ -12,7 +12,6 @@
   <script src="js/app/models/Negociacao.js"></script>
   <script>
     var connection;
-
     // ndexedDB.open() retorna uma instância de IDBOpenDBRequest, ou seja, uma requisição de abertura do banco.
     var openRequest = window.indexedDB.open('aluraframe', 4);
 
@@ -54,7 +53,7 @@
       let negociacoes = [];
       cursor.onsuccess = e => {
         let atual = e.target.result;
-        if (atual) {        
+        if (atual) {
           let dado = atual.value;
           negociacoes.push(new Negociacao(dado._data, dado._quantidade, dado._valor));
           atual.continue();
@@ -67,17 +66,16 @@
       }
 
       ConnectionFactory
-      .getConnection()
-      .then(connection => {
+        .getConnection()
+        .then(connection => {
+        })
 
-      })
-      
 
       ConnectionFactory
-      .getConnection()
-      .then(connection => {
-        
-      })
+        .getConnection()
+        .then(connection => {
+
+        })
     }
   </script>
 </body>

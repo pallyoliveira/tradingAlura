@@ -1,43 +1,89 @@
-class ListaNegociacoes {
-  constructor() {
-    this._negociacoes = [];
-    // this._armadilha = armadilha;
-    // this._contexto = contexto;
+"use strict";
+
+System.register([], function (_export, _context) {
+  "use strict";
+
+  var _createClass, ListaNegociacoes;
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
   }
 
-  adiciona(negociacao) {
-    // this._negociacoes = [].concat(this._negociacoes, negociacao);   
-    this._negociacoes.push(negociacao);
-    // Reflect.apply(this._armadilha, this._contexto, [this]);
-  }
+  return {
+    setters: [],
+    execute: function () {
+      _createClass = function () {
+        function defineProperties(target, props) {
+          for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor) descriptor.writable = true;
+            Object.defineProperty(target, descriptor.key, descriptor);
+          }
+        }
 
-  get negociacoes() {
-    return [].concat(this._negociacoes);
-  }
+        return function (Constructor, protoProps, staticProps) {
+          if (protoProps) defineProperties(Constructor.prototype, protoProps);
+          if (staticProps) defineProperties(Constructor, staticProps);
+          return Constructor;
+        };
+      }();
 
-  inverteOrdem() {
-    this._negociacoes.reverse();
-}
+      _export("ListaNegociacoes", ListaNegociacoes = function () {
+        function ListaNegociacoes() {
+          _classCallCheck(this, ListaNegociacoes);
 
+          this._negociacoes = [];
+          // this._armadilha = armadilha;
+          // this._contexto = contexto;
+        }
 
-  esvazia() {
-    this._negociacoes = [];
-    // this._armadilha(this);
-    // Reflect.apply(this._armadilha, this._contexto, [this]);
-  }
+        _createClass(ListaNegociacoes, [{
+          key: "adiciona",
+          value: function adiciona(negociacao) {
+            // this._negociacoes = [].concat(this._negociacoes, negociacao);   
+            this._negociacoes.push(negociacao);
+            // Reflect.apply(this._armadilha, this._contexto, [this]);
+          }
+        }, {
+          key: "inverteOrdem",
+          value: function inverteOrdem() {
+            this._negociacoes.reverse();
+          }
+        }, {
+          key: "esvazia",
+          value: function esvazia() {
+            this._negociacoes = [];
+            // this._armadilha(this);
+            // Reflect.apply(this._armadilha, this._contexto, [this]);
+          }
+        }, {
+          key: "ordena",
+          value: function ordena(criterio) {
+            this._negociacoes.sort(criterio);
+          }
+        }, {
+          key: "negociacoes",
+          get: function get() {
+            return [].concat(this._negociacoes);
+          }
+        }, {
+          key: "volumeTotal",
+          get: function get() {
+            return this._negociacoes.reduce(function (total, n) {
+              return total + n.volume;
+            }, 0.0);
+          }
+        }]);
 
-  ordena(criterio) {
-    this._negociacoes.sort(criterio);        
-}
-    // novo método
-    get volumeTotal() {
-      return this._negociacoes.reduce((total, n) => total + n.volume, 0.0);
-   }
-}
-// Reflect.apply é um método estático em JavaScript que permite chamar uma função com um determinado valor this e um conjunto de argumentos passados como um array.
-// A sintaxe básica do Reflect.apply é a seguinte
-// Reflect.apply(target, thisArg, args)
-// Onde:
-// target: A função que será chamada.
-// thisArg: O valor que será atribuído ao this dentro da função.
-// args: Um array contendo os argumentos que serão passados para a função.
+        return ListaNegociacoes;
+      }());
+
+      _export("ListaNegociacoes", ListaNegociacoes);
+    }
+  };
+});
+//# sourceMappingURL=ListaNegociacoes.js.map
