@@ -68,7 +68,6 @@ System.register([], function (_export, _context) {
                 }
                 resolve(connection);
               };
-
               openRequest.onerror = function (e) {
                 console.log(e.target.error);
                 reject(e.target.error.name);
@@ -86,7 +85,6 @@ System.register([], function (_export, _context) {
         }, {
           key: 'closeConnection',
           value: function closeConnection() {
-
             if (connection) {
               close();
               connection = null;

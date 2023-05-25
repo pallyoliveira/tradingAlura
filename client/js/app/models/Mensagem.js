@@ -33,7 +33,6 @@ System.register([], function (_export, _context) {
             }();
 
             _export('Mensagem', Mensagem = function () {
-                // constructor(texto='') {
                 function Mensagem(texto) {
                     _classCallCheck(this, Mensagem);
 
@@ -43,11 +42,9 @@ System.register([], function (_export, _context) {
                 _createClass(Mensagem, [{
                     key: 'texto',
                     get: function get() {
-
                         return this._texto;
                     },
                     set: function set(texto) {
-
                         this._texto = texto;
                     }
                 }]);

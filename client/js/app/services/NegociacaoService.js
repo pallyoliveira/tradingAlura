@@ -50,7 +50,6 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 _createClass(NegociacaoService, [{
                     key: 'obterNegociacoesDaSemana',
                     value: function obterNegociacoesDaSemana() {
-
                         return this._http.get('negociacoes/semana').then(function (negociacoes) {
                             console.log(negociacoes);
                             return negociacoes.map(function (objeto) {
@@ -64,7 +63,6 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 }, {
                     key: 'obterNegociacoesDaSemanaAnterior',
                     value: function obterNegociacoesDaSemanaAnterior() {
-
                         return this._http.get('negociacoes/anterior').then(function (negociacoes) {
                             console.log(negociacoes);
                             return negociacoes.map(function (objeto) {
@@ -78,7 +76,6 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 }, {
                     key: 'obterNegociacoesDaSemanaRetrasada',
                     value: function obterNegociacoesDaSemanaRetrasada() {
-
                         return this._http.get('negociacoes/retrasada').then(function (negociacoes) {
                             console.log(negociacoes);
                             return negociacoes.map(function (objeto) {
@@ -92,15 +89,12 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 }, {
                     key: 'obterNegociacoes',
                     value: function obterNegociacoes() {
-
                         return Promise.all([this.obterNegociacoesDaSemana(), this.obterNegociacoesDaSemanaAnterior(), this.obterNegociacoesDaSemanaRetrasada()]).then(function (periodos) {
-
                             var negociacoes = periodos.reduce(function (dados, periodo) {
                                 return dados.concat(periodo);
                             }, []).map(function (dado) {
                                 return new Negociacao(new Date(dado.data), dado.quantidade, dado.valor);
                             });
-
                             return negociacoes;
                         }).catch(function (erro) {
                             throw new Error(erro);
@@ -109,7 +103,6 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 }, {
                     key: 'cadastra',
                     value: function cadastra(negociacao) {
-
                         return ConnectionFactory.getConnection().then(function (connection) {
                             return new NegociacaoDao(connection);
                         }).then(function (dao) {
@@ -124,7 +117,6 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 }, {
                     key: 'lista',
                     value: function lista() {
-
                         return ConnectionFactory.getConnection().then(function (connection) {
                             return new NegociacaoDao(connection);
                         }).then(function (dao) {
@@ -137,7 +129,6 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 }, {
                     key: 'apaga',
                     value: function apaga() {
-
                         return ConnectionFactory.getConnection().then(function (connection) {
                             return new NegociacaoDao(connection);
                         }).then(function (dao) {
@@ -152,7 +143,6 @@ System.register(['./HttpService', './ConnectionFactory', '../dao/NegociacaoDao',
                 }, {
                     key: 'importa',
                     value: function importa(listaAtual) {
-
                         return this.obterNegociacoes().then(function (negociacoes) {
                             return negociacoes.filter(function (negociacao) {
                                 return !listaAtual.some(function (negociacaoExistente) {

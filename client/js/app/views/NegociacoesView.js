@@ -71,20 +71,17 @@ System.register(['./View', '../helpers/DateHelper', '../controllers/NegociacaoCo
                     var _this = _possibleConstructorReturn(this, (NegociacoesView.__proto__ || Object.getPrototypeOf(NegociacoesView)).call(this, elemento));
 
                     elemento.addEventListener('click', function (event) {
-
                         if (event.target.nodeName == 'TH') currentInstance().ordena(event.target.textContent.toLowerCase());
                     });
-
                     return _this;
                 }
 
                 _createClass(NegociacoesView, [{
                     key: 'template',
                     value: function template(model) {
-
-                        return '\n        <table class="table table-hover table-bordered">\n        \n            <thead>\n                <tr>\n                    <th>DATA</th>\n                    <th>QUANTIDADE</th>\n                    <th>VALOR</th>\n                    <th>VOLUME</th>\n                </tr>\n            </thead>\n        \n            <tbody>\n                ' + model.negociacoes.map(function (n) {
+                        return '\n        <table class="table table-hover table-bordered">        \n            <thead>\n                <tr>\n                    <th>DATA</th>\n                    <th>QUANTIDADE</th>\n                    <th>VALOR</th>\n                    <th>VOLUME</th>\n                </tr>\n            </thead>        \n            <tbody>\n                ' + model.negociacoes.map(function (n) {
                             return '\n                    \n                    <tr>\n                        <td>' + DateHelper.dataParaTexto(n.data) + '</td>\n                        <td>' + n.quantidade + '</td>\n                        <td>' + n.valor + '</td>\n                        <td>' + n.volume + '</td>\n                    </tr>\n                    \n                ';
-                        }).join('') + '                \n            </tbody>\n                  \n            <tfoot>\n                <td colspan="3"></td>\n                <td>\n                    ' + model.volumeTotal + '\n                </td>\n            </tfoot>\n            \n        </table>\n        ';
+                        }).join('') + '                \n            </tbody>                  \n            <tfoot>\n                <td colspan="3"></td>\n                <td>\n                    ' + model.volumeTotal + '\n                </td>\n            </tfoot>\n            \n        </table>\n        ';
                     }
                 }]);
 
